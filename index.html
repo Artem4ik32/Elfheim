@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ельфхейм: Магічне посвідчення</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Kurale&display=swap');
+  </style>
+</head>
+<body>
+
+   <!-- Тут початок, де ти заходиш у Ельфхейм і тобі все розповідають -->
+  <section class="section intro">
+    <h1 class="great-vibes-regular">Вітаємо в Ельфхеймі</h1>
+    <p class="great-vibes-regular">Ельфхейм — це магічне королівство, заховане за завісою між світами. Тут небо завжди зоряне, а дерева шепочуть древні пісні. У цих землях живуть світлі та темні ельфи, мудрі феї, таємничі створіння і навіть смертні, які наважились переступити межу звичайного світу.
+      У Ельфхеймі краса й небезпека йдуть поруч. Дворці з кришталю, підводні міста, повітряні острови — це лиш крихта чарів, що наповнюють цей світ. Тут кожен має свою долю, свою історію та свою магію. 
+      Заплющ очі. Уяви, що ти ступаєш на м’який мох ельфійського лісу. Хто ти в Ельфхеймі? Обраний? Шпигун? Чарівник чи воїн? Настав час дізнатися...</p>
+    <a href="#form" class="button">Увійти до Ельфхейму</a>
+  </section>
+
+  <!-- Тепер треба дізнатися, хто користувач за допомогою анкети -->
+  <section class="section form-section" id="form">
+    <h2 class="great-vibes-regular">Хто ти в Ельфхеймі?</h2>
+    <p class="kurale-regular">Заповни магічну анкету, щоб дізнатися свою долю.</p>
+    <form id="elfForm">
+      <div>
+        <label for="name">Твоє ім’я:</label>
+        <input type="text" id="name" placeholder="Введіть своє ім'я">
+      </div>
+      <div>
+        <label for="type">Тип ельфа:</label>
+        <select id="type">
+          <option>Світлий ельф</option>
+          <option>Темний ельф</option>
+          <option>Лісовий ельф</option>
+          <option>Водяний ельф</option>
+        </select>
+      </div>
+      <div>
+        <label for="power">Магічна сила:</label>
+        <select id="power">
+          <option>Шепіт Ілюзій</option>
+          <option>Гнів природи</option>
+          <option>Музичний біт</option>
+          <option>Вогнена стіна</option>
+          <option>Водяний шторм</option>
+          <option>Повітряна буря</option>
+          <option>Ментальний щит</option>
+          <option>Симбіоз з мечем</option>
+        </select>
+      </div>
+    </form>
+    <button class="button" onclick="generateCertificate()">Отримати сертифікат</button>
+  </section>
+
+  <!-- Тут користувач отримує свій магічний сертифікат -->
+  <section class="section certificate" id="certificate" style="display:none;">
+    <div class="sparkles"></div>
+    <h2 class="great-vibes-regular">Магічне посвідчення Ельфа</h2>
+    <h3 id="certName">---</h3>
+    <p id="certType">---</p>
+    <p id="certPower">---</p>
+    <p class="kurale-regular">Магічна сила твоя — це захист королівства. Хай твої кроки ведуть до перемоги!</p>
+    <img src="https://i.postimg.cc/0Qrdb1Pr/1dd1de4e-cab0-4c02-aff6-cd78cc3be573.png" alt="Печатка Ельфхейму" class="elf-seal">
+  </section>
+
+   <!-- Тут можна подивитись на карту Ельфхейму -->
+  <section class="section map-section" id="map">
+    <h2 class="great-vibes-regular">Карта Ельфхейму</h2>
+    <img src="https://royallib.com/zip_emu/br/437/437956/i_001.jpg" alt="Мапа Ельфгейму" class="map-image">
+    <p class="kurale-regular">Подорожуй землями світлих, нічних і лісових ельфів…</p>
+  </section>
+
+   <!-- Секрет Ельфхейму! Тут є кнопка для відкриття таємниці -->
+  <section class="section secret-section">
+    <h2 class="great-vibes-regular">🔐 Секрет Ельфхейму</h2>
+    <button id="revealSecretBtn" onclick="showSecret()" class="button">Відкрити таємницю</button>
+    <div id="secretBlock" style="display: none; margin-top: 20px;">
+      <p class="kurale-regular" style="font-size: 18px; color: #e5e4dc;">
+        Лише той, хто відкрив це послання, зможе зупинити всі конфлікти в Ельфхеймі. Але пам’ятай — справжня магія починається з віри в себе...
+      </p>
+    </div>
+  </section>
+
+   <!-- Герої Ельфхейму: користувач може дізнатись більше про них, а також подивитися на їх арт-фото -->
+  <section class="section heroes-section" id="heroes">
+    <h2 class="great-vibes-regular">Герої Ельфхейму</h2>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/0/08/Jude_Duarte_Enemies_%26_Lovers_by_Frostbite_Studios_02.jpg" alt="Джуд Дуарте">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Джуд Дуарте</h3>
+        <p class="kurale-regular">Головна героїня, не з світу фейрі. Народилася в світі людей, але потрапила в магічний світ через Мадока. Дуже войовнича.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/d/d4/Cardan_Greenbriar_by_Frostbite_Studios_01.png" alt="Принц Кардан">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Принц Кардан</h3>
+        <p class="kurale-regular">Наймолодший син короля. Ніхто не складає надій, що з нього щось вийде, але він намагається довести протилежне.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/9/9d/Dain_by_Frostbite_Studios.jpg" alt="Принц Даін">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Принц Даїн</h3>
+        <p class="kurale-regular">Брат Кардана. Дуже кмітливий і мислить як справжній стратег. Організував групу шпіонів.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/8/85/Balekin_Greenbriar_by_Frostbite_Studios.jpg" alt="Принц Балекін">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Принц Балекін</h3>
+        <p class="kurale-regular">Найпідступніший з усієї королівської сім'ї. Хоче зайняти трон, навіть якщо на його шляху будуть брати.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/7/70/Madoc_by_Frostbite_Studios.jpg" alt="Мадок">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Мадок</h3>
+        <p class="kurale-regular">Нерідний батько Джуд. Найкращий воїн Ельфхейму. Вважає себе неперевершеним захисником.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/c/ca/Taryn_Duarte_Official_Art_by_Frostbite_Studios.jpg" alt="Тарін">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Тарін Дуарте</h3>
+        <p class="kurale-regular">Рідна сестра Джуд. Приділяє більше уваги красоті, ніж боям. Завжди готова допомогти і прикрити Джуд.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/0/03/Vivienne_by_Frostbite_Studios.jpg" alt="Вів'єн">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Вів'єн</h3>
+        <p class="kurale-regular">Сестра Джуд. Має магічні здібності. Ненавидить Мадока через те, що вбив її рідного батька. Тому вона хоче повернутися у світ людей.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-img">
+          <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/0/0f/Locke_Card_by_Frostbite_Studios.jpg" alt="Локк">
+      </div>
+    <div class="hero-info">
+      <h3 class="great-vibes-regular">Локк</h3>
+      <p class="kurale-regular">Найкращий друг Кардана. Мріє стати королівським шутом.</p>
+    </div>
+  </div>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/8/89/The_Ghost_by_Frostbite_Studios.jpg" alt="Привид">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Привид</h3>
+        <p class="kurale-regular">Перший з трійки шпіонів, які працюють на принца Даїна. Вирішив допомогти Джуд опанувати майстерність володіння мечем.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/3/30/The_Roach_by_Frostbite_Studios.jpg" alt="Тараган">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Тараган</h3>
+        <p class="kurale-regular">Другий з трійки шпіонів, які працюють на принца Даїна. З легкістю непомітно відкриває усі замки та краде речі.</p>
+      </div>
+    </div>
+    <div class="hero-card">
+        <div class="hero-img">
+            <img src="https://static.wikia.nocookie.net/the-folk-of-the-air/images/5/5f/The_Bomb_by_Frostbite_Studios.jpg" alt="Бомба">
+        </div>
+      <div class="hero-info">
+        <h3 class="great-vibes-regular">Бомба</h3>
+        <p class="kurale-regular">Третя з трійки шпіонів, які працюють на принца Даїна. Має досвід з вибухівками, а також готує різні протиотрути.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ну і тут інфа про Ельфхейм — різні цікаві факти. Це як гайд, щоб не попасти в халепу -->
+  <section class="section guide-section">
+    <h2 class="great-vibes-regular">📜 Довідничок Ельфхейму</h2>
+    <div class="kurale-regular" style="color: #e0ffff; font-size: 20px;">
+      <ul style="list-style-type: '🌿 '; padding-left: 1em;">
+        <li>Жителі Ельфхейму не можуть брехати — магія істини пронизує їхню природу.</li>
+        <li>Рябіна — могутній захист від темної магії. Завжди носи гілочку з собою.</li>
+        <li>Фейрі не терплять невдячності. Завжди дякуй за подарунки, навіть якщо це просто посмішка.</li>
+        <li>Ніколи не їж їжу в королівстві фейрі, якщо не хочеш залишитися назавжди.</li>
+        <li>Залізо шкодить магічним істотам. Не носи з собою металевих предметів.</li>
+        <li>Музика — мова ельфів. Через неї можна спілкуватися, закохувати і навіть боротися.</li>
+        <li>Пильнуй свої слова: імена мають силу, а обіцянки — вагу.</li>
+      </ul>
+    </div>
+  </section>
+  
+  <script src="script.js"></script>
+</body>
+</html>
